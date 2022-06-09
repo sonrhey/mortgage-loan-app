@@ -4,7 +4,7 @@
   class="light-style customizer-hide"
   dir="ltr"
   data-theme="theme-default"
-  data-assets-path="../assets/"
+  data-assets-path="{{ asset('template_resources/assets/') }}"
   data-template="vertical-menu-template-free"
 >
   <head>
@@ -15,7 +15,7 @@
     />
     <title>Mortgage</title>
     <meta name="description" content="" />
-    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('template_resources/assets/img/favicon/favicon.ico') }}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
