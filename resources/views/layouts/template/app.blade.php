@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="{{ asset('template_resources/assets/vendor/libs/apex-charts/apex-charts.css') }}" />
     <script src="{{ asset('template_resources/assets/vendor/js/helpers.js') }}"></script>
     <script src="{{ asset('template_resources/assets/js/config.js') }}"></script>
+    @yield('custom-css')
   </head>
 
   <body>
@@ -50,6 +51,12 @@
               <a href="index.html" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
+              </a>
+            </li>
+            <li class="menu-item">
+              <a href="index.html" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-history"></i>
+                <div data-i18n="Analytics">History</div>
               </a>
             </li>
           </ul>
@@ -80,7 +87,7 @@
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
                   <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                     <div class="avatar avatar-online">
-                      <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                      <img src="{{ asset('template_resources/assets/img/avatars/1.png') }}" alt class="w-px-40 h-auto rounded-circle" />
                     </div>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">
@@ -139,6 +146,8 @@
           </nav>
           <div class="content-wrapper">
             <div class="container-xxl flex-grow-1 container-p-y">
+              @include('layouts.template.page-title.index')
+              <hr>
               @yield('content')
             </div>
             <div class="content-backdrop fade"></div>
@@ -155,5 +164,6 @@
     <script src="{{ asset('template_resources/assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
     <script src="{{ asset('template_resources/assets/js/main.js') }}"></script>
     <script src="{{ asset('template_resources/assets/js/dashboards-analytics.js') }}"></script>
+    @yield('custom-js')
   </body>
 </html>
