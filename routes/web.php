@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HistoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,8 +19,9 @@ Route::get('/', function () {
     return redirect('/login');
 });
 
-Route::get('/dashboard', function () {
-    return view('layouts.template.pages.dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::group(['middleware' => ['auth']], function(){
+    Route::resource('dashboard', DashboardController::class);
+    Route::resource('history', HistoryController::class);
+});
 
 require __DIR__.'/auth.php';
