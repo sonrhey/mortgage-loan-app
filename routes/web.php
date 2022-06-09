@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HistoryController;
+use App\Http\Controllers\LoanAmmortizationCalculatorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +23,7 @@ Route::get('/', function () {
 Route::group(['middleware' => ['auth']], function(){
     Route::resource('dashboard', DashboardController::class);
     Route::resource('history', HistoryController::class);
+    Route::resource('loan-ammortization-calculator', LoanAmmortizationCalculatorController::class);
 });
 
 require __DIR__.'/auth.php';
