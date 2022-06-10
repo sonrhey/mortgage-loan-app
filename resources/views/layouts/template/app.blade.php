@@ -152,6 +152,8 @@
     <script src="{{ asset('template_resources/assets/js/main.js') }}"></script>
     <script src="{{ asset('template_resources/assets/js/dashboards-analytics.js') }}"></script>
     <script src="https://kit.fontawesome.com/36dee43059.js" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/accounting.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     @yield('custom-js')
   </body>
 </html>
