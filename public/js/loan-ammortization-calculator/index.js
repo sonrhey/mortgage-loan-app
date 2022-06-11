@@ -1,43 +1,41 @@
+let calculation = [];
+
 $('#calculate').on('click', function() {
   $('#btn-save').prop('disabled', false);
-  const loanAmount = Number($('#loan-amount').val());
-  const interestRate = Number($('#interest-rate').val()) / PERCENTAGE;
-  const ammortizationPeriod = Number($('#ammortization-period').val());
-  const currencySymbol = $('#currency').val();
-
-  const monthlyInterestRate = interestRate / MONTHS;
-  const monthlyInterestRatePlusOne = monthlyInterestRate + ONE;
-  const dividend = monthlyInterestRate * Math.pow(monthlyInterestRatePlusOne, ammortizationPeriod);
-  const divisor = Math.pow(monthlyInterestRatePlusOne, ammortizationPeriod) - ONE;
-  const monthlyPayment = loanAmount * (dividend / divisor);
 
   const monthlyPaments = computeMonthly({
-    loanAmount: loanAmount,
-    interestRate: interestRate,
-    ammortizationPeriod: ammortizationPeriod,
-    monthlyPayment: monthlyPayment,
-    currencySymbol: currencySymbol
+    ...calculate()
   });
 
+});
+
+
+$('#btn-save').on('click', function() {
+  const { description, currencySymbol, loanAmount, interestRate, ammortizationPeriod } = calculate();
+
   const requests = {
-    loanAmount: loanAmount,
-    interestRate: interestRate,
-    ammortizationPeriod: ammortizationPeriod,
-    monthlyPayment: monthlyPayment,
-    monthlyPaments: monthlyPaments
+    form: {
+      title: description,
+      currency: currencySymbol,
+      loan_amount: loanAmount,
+      interest_rate: interestRate,
+      ammortization_period: ammortizationPeriod,
+    },
+    monthlyPaments: calculation
   }
 
+  saveCalculation(requests);
 });
 
 const computeMonthly = ({
   loanAmount : loanAmount,
   interestRate: interestRate,
   ammortizationPeriod : ammortizationPeriod,
-  monthlyPayment: monthlyPayment,
-  currencySymbol: currencySymbol
+  currencySymbol: currencySymbol,
+  monthlyPayment: monthlyPayment
 }) => {
   let begginingBalance = loanAmount;
-  let calculation = [];
+  calculation = [];
 
   $('#ammortization-list').empty();
   for (let a = 1 ; a <= ammortizationPeriod; a++) {
@@ -56,14 +54,12 @@ const computeMonthly = ({
 
     calculation.push({
       month: a,
-      monthlyPayment: monthlyPayment,
+      payment: monthlyPayment,
       principal: principal,
-      monthlyInterest: monthlyInterest,
-      endingBalance: endingBalance
+      interest: monthlyInterest,
+      balance: endingBalance
     })
   }
-
-  return calculation;
 }
 
 const convertToPositive = (oldBalance) => {

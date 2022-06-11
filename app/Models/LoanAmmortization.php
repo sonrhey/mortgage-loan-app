@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class LoanAmmortization extends Model
 {
     use HasFactory;
+
+    protected $table = "loan_ammortizations";
+    protected $fillable = [
+        "base_loan_calculator_id",
+        "title",
+        "currency",
+        "loan_amount",
+        "interest_rate",
+        "ammortization_period"
+    ];
 }
