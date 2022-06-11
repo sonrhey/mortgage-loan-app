@@ -87,5 +87,8 @@ const currencyAPIKey = '{{ env('CURRENCY_API_KEY') }}';
 </script>
 <script src="{{ asset('js/loan-ammortization-calculator/get-currency.js') }}"></script>
 <script src="{{ asset('js/constants/ammortization/index.js') }}"></script>
+<script src="{{ asset('js/constants/request-header.js') }}"></script>
+<script src="{{ asset('js/loan-ammortization-calculator/api.js') }}"></script>
+<script src="{{ asset('js/loan-ammortization-calculator/calculation.js') }}"></script>
 <script src="{{ asset('js/loan-ammortization-calculator/index.js') }}"></script>
 @endsection
