@@ -22,4 +22,6 @@ Route::post('/login', [AuthenticatedSessionController::class, 'login']);
 Route::middleware(['auth:sanctum'])->group(function () {
   Route::post('/loan-ammortization-calculator/store', [LoanAmmortizationCalculatorController::class, 'store']);
   Route::get('/history/all-history', [HistoryController::class, 'all_history']);
+  Route::delete('/history/destroy', [HistoryController::class, 'destroy']);
+  Route::delete('/history/delete-all', [HistoryController::class, 'delete_all']);
 });

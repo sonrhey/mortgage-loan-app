@@ -23,6 +23,11 @@ class BaseLoanCalculator extends Model
         Static::creating(function($model){
             $model->added_by = Auth::user()->id;
         });
+
+        static::deleting(function($loan_ammortization) {
+            $loan_ammortization->loan_ammortization->loan_ammortization_details()->delete();
+            $loan_ammortization->loan_ammortization()->delete();
+        });
     }
 
     public function loan_type() {

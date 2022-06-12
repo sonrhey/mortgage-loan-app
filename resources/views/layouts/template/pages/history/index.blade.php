@@ -5,7 +5,7 @@
   <div class="loan-calculation-history-table">
     <div class="card">
       <div class="card-body">
-        <button class="btn btn-danger">Delete all History</button>
+        <button class="btn btn-danger" id="delete-all" disabled>Delete all History</button>
         <div class="mb-4"></div>
         <table class="table table-striped" id="history-list">
           <thead>
@@ -25,6 +25,7 @@
     </div>
   </div>
 </div>
+@include('layouts.template.modals.history.delete-prompt')
 @endsection
 @section('custom-js')
 <script src="{{ asset('js/constants/request-header.js') }}"></script>

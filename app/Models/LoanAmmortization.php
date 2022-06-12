@@ -18,4 +18,8 @@ class LoanAmmortization extends Model
         "interest_rate",
         "ammortization_period"
     ];
+
+    public function loan_ammortization_details() {
+        return $this->hasMany(LoanAmmortizationDetails::class, 'loan_ammortization_id');
+    }
 }

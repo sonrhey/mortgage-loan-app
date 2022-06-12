@@ -170,6 +170,7 @@
     <script src="{{ asset('js/waitMe.min.js') }}"></script>
     <script src="{{ asset('js/toast.js') }}"></script>
     <script src="{{ asset('js/constants/server-responses.js') }}"></script>
+    <script src="{{ asset('js/constants/prompt-messages.js') }}"></script>
     <script src="{{ asset('js/common-services/index.js') }}"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
