@@ -1,7 +1,7 @@
 let calculation = [];
 
 $('#calculate').on('click', function() {
-  $('#btn-save').prop('disabled', false);
+  $('.save').prop('disabled', false);
 
   const monthlyPaments = computeMonthly({
     ...calculate()
@@ -10,7 +10,8 @@ $('#calculate').on('click', function() {
 });
 
 
-$('#btn-save').on('click', function() {
+$('#btn-save').on('submit', function(e) {
+  e.preventDefault();
   const { description, currencySymbol, loanAmount, interestRate, ammortizationPeriod } = calculate();
 
   const requests = {

@@ -49,7 +49,7 @@ class LoanAmmortizationCalculatorController extends Controller
             $loan_ammortization_details = LoanAmmortizationDetails::insert($payments);
 
             $this->response->response_code = 1;
-            $this->response->message = "success";
+            $this->response->message = "You have successfully saved your calculation.";
             $this->response->data = $loan_ammortization_details;
             DB::commit();
         } catch (Exception $ex) {

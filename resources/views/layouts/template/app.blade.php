@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="{{ asset('template_resources/assets/css/demo.css') }}" />
     <link rel="stylesheet" href="{{ asset('template_resources/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
     <link rel="stylesheet" href="{{ asset('template_resources/assets/vendor/libs/apex-charts/apex-charts.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/waitMe.min.css') }}" />
     <script src="{{ asset('template_resources/assets/vendor/js/helpers.js') }}"></script>
     <script src="{{ asset('template_resources/assets/js/config.js') }}"></script>
     @yield('custom-css')
@@ -146,6 +147,7 @@
       </div>
       <div class="layout-overlay layout-menu-toggle"></div>
     </div>
+    @include('layouts.template.alerts.toast.index')
     <?php
     $user = Auth::user(); 
     $token =  $user->createToken('token')->plainTextToken;
@@ -163,8 +165,12 @@
     <script src="{{ asset('template_resources/assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
     <script src="{{ asset('template_resources/assets/js/main.js') }}"></script>
     <script src="{{ asset('template_resources/assets/js/dashboards-analytics.js') }}"></script>
-    <script src="https://kit.fontawesome.com/36dee43059.js" crossorigin="anonymous"></script>
     <script src="{{ asset('js/accounting.js') }}"></script>
+    <script src="{{ asset('js/waitMe.min.js') }}"></script>
+    <script src="{{ asset('js/toast.js') }}"></script>
+    <script src="{{ asset('js/constants/server-responses.js') }}"></script>
+    <script src="{{ asset('js/common-services/index.js') }}"></script>
+    <script src="https://kit.fontawesome.com/36dee43059.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     @yield('custom-js')
   </body>
