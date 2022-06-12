@@ -6,58 +6,60 @@
     <div class="card-body">
       <div class="row">
         <div class="col-md-4">
-          <h4>Form</h4>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="mb-3">
-                <label for="description" class="form-label">Description</label>
-                <input type="text" class="form-control" id="description" placeholder="Enter Loan Description" disabled/> 
+          <form id="btn-save">
+            <h4>Form</h4>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="mb-3">
+                  <label for="description" class="form-label">Description</label>
+                  <input type="text" class="form-control" id="description" placeholder="Enter Loan Description" disabled/> 
+                </div>
               </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="mb-3">
-                <label for="description" class="form-label">Currency</label>
-                <select class="form-control" id="currency">
-                </select>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="mb-3">
+                  <label for="description" class="form-label">Currency</label>
+                  <select class="form-control" id="currency">
+                  </select>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="mb-3">
-                <label for="loan-amount" class="form-label">Loan Amount</label>
-                <input type="number" class="form-control" id="loan-amount" placeholder="Enter Loan Amount" disabled/> 
+            <div class="row">
+              <div class="col-md-12">
+                <div class="mb-3">
+                  <label for="loan-amount" class="form-label">Loan Amount</label>
+                  <input type="number" class="form-control" id="loan-amount" placeholder="Enter Loan Amount" disabled/> 
+                </div>
               </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="mb-3">
-                <label for="loan-amount" class="form-label">Interest Rate (%)</label>
-                <input type="number" class="form-control" id="interest-rate" placeholder="Enter Interest Rate" disabled/> 
+            <div class="row">
+              <div class="col-md-12">
+                <div class="mb-3">
+                  <label for="loan-amount" class="form-label">Interest Rate (%)</label>
+                  <input type="number" class="form-control" id="interest-rate" placeholder="Enter Interest Rate" disabled/> 
+                </div>
               </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="mb-3">
-                <label for="loan-amount" class="form-label">Ammortization Period (Months) <i class="fa-solid fa-circle-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Length of time it would take to pay off a mortgage in full."></i></label>
-                <input type="number" class="form-control" id="ammortization-period" placeholder="Enter Ammortization Period" disabled/> 
+            <div class="row">
+              <div class="col-md-12">
+                <div class="mb-3">
+                  <label for="loan-amount" class="form-label">Ammortization Period (Months) <i class="fa-solid fa-circle-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Length of time it would take to pay off a mortgage in full."></i></label>
+                  <input type="number" class="form-control" id="ammortization-period" placeholder="Enter Ammortization Period" disabled/> 
+                </div>
               </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="mb-3 d-grid gap-2">
-                <button class="btn btn-warning" id="calculate" disabled>Calculate</button>
-              </div>
-              <div class="mb-3 d-grid gap-2">
-                <button class="btn btn-primary" id="btn-save" disabled>Save</button>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="mb-3 d-grid gap-2">
+                  <button class="btn btn-warning" type="button" id="calculate" disabled>Calculate</button>
+                </div>
+                <div class="mb-3 d-grid gap-2">
+                  <button class="btn btn-primary save" type="submit" disabled>Save</button>
+                </div>
               </div>
             </div>
-          </div>
+          </form>
         </div>
         <div class="col-md-8">
           <h4>Calculation</h4>
