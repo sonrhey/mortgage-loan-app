@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\LoanAmmortizationCalculatorController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -20,4 +21,5 @@ Route::post('/login', [AuthenticatedSessionController::class, 'login']);
 
 Route::middleware(['auth:sanctum'])->group(function () {
   Route::post('/loan-ammortization-calculator/store', [LoanAmmortizationCalculatorController::class, 'store']);
+  Route::get('/history/all-history', [HistoryController::class, 'all_history']);
 });

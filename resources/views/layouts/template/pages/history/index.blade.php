@@ -7,31 +7,28 @@
       <div class="card-body">
         <button class="btn btn-danger">Delete all History</button>
         <div class="mb-4"></div>
-        <table class="table table-striped">
+        <table class="table table-striped" id="history-list">
           <thead>
             <th>Calculation Id</th>
             <th>Calculator Type</th>
             <th>Title</th>
+            <th>Loan Amount</th>
+            <th>Interest Rate</th>
+            <th>Ammortization Period </th>
             <th>Date Added</th>
             <th>Action</th>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Loan Ammortization</td>
-              <td>2M Loan Amount</td>
-              <td>2022/06/09 09:29PM</td>
-              <td>
-                <div class="btn-group" role="group" aria-label="controls">
-                  <button class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
-                  <button class="btn btn-warning"><i class="fa-solid fa-eye"></i></button>
-                </div>
-              </td>
-            </tr>
           </tbody>
         </table>
       </div>
     </div>
   </div>
 </div>
+@endsection
+@section('custom-js')
+<script src="{{ asset('js/constants/request-header.js') }}"></script>
+<script src="{{ asset('js/constants/ammortization/index.js') }}"></script>
+<script src="{{ asset('js/history/api.js') }}"></script>
+<script src="{{ asset('js/history/index.js') }}"></script>
 @endsection

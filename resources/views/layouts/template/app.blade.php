@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="{{ asset('template_resources/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
     <link rel="stylesheet" href="{{ asset('template_resources/assets/vendor/libs/apex-charts/apex-charts.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/waitMe.min.css') }}" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" />
     <script src="{{ asset('template_resources/assets/vendor/js/helpers.js') }}"></script>
     <script src="{{ asset('template_resources/assets/js/config.js') }}"></script>
     @yield('custom-css')
@@ -170,6 +171,8 @@
     <script src="{{ asset('js/toast.js') }}"></script>
     <script src="{{ asset('js/constants/server-responses.js') }}"></script>
     <script src="{{ asset('js/common-services/index.js') }}"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
     <script src="https://kit.fontawesome.com/36dee43059.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     @yield('custom-js')
