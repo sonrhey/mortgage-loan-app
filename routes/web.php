@@ -24,6 +24,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('dashboard', DashboardController::class);
     Route::resource('history', HistoryController::class);
     Route::resource('loan-ammortization-calculator', LoanAmmortizationCalculatorController::class);
+    Route::get('history/{id}/{slug}', [HistoryController::class, 'calculation_view']);
 });
 
 require __DIR__.'/auth.php';

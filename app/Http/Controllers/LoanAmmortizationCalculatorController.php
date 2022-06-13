@@ -8,6 +8,7 @@ use App\Models\LoanAmmortizationDetails;
 use App\Models\ViewModel\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class LoanAmmortizationCalculatorController extends Controller
 {
@@ -28,6 +29,7 @@ class LoanAmmortizationCalculatorController extends Controller
             $base_loan->save();
 
             $loan_ammortization = new LoanAmmortization($request->form);
+            $loan_ammortization->slug = Str::slug($request->form["title"], "-");
             $loan_ammortization->base_loan_calculator_id = $base_loan->id;
             $loan_ammortization->save();
 

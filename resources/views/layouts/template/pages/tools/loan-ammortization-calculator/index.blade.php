@@ -37,7 +37,7 @@
               <div class="col-md-12">
                 <div class="mb-3">
                   <label for="loan-amount" class="form-label">Interest Rate (%)</label>
-                  <input type="number" class="form-control" id="interest-rate" placeholder="Enter Interest Rate" disabled/> 
+                  <input type="number" step="0.01" class="form-control" id="interest-rate" placeholder="Enter Interest Rate" disabled/> 
                 </div>
               </div>
             </div>

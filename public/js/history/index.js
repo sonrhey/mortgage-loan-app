@@ -20,6 +20,11 @@ $(document).on('click', '#delete-entry', function() {
   });
 });
 
+$(document).on('click', '#view-history', function() {
+  const data = historyList.row($(this).parents('tr')).data();
+  window.location.replace(`history/${data.loan_ammortization.id}/${data.loan_ammortization.slug}`);
+});
+
 $(document).on('click', '#proceed-delete-all', function() {
   deleteAllHistory({
     modal: $('#delete-prompt')

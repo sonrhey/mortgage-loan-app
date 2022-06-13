@@ -51,7 +51,7 @@ const historyList = $('#history-list').DataTable({
       const action_buttons = `
         <div class="btn-group" role="group" aria-label="controls">
           <button class="btn btn-danger" id="delete-entry"><i class="fa-solid fa-trash-can"></i></button>
-          <button class="btn btn-warning"><i class="fa-solid fa-eye"></i></button>
+          <button class="btn btn-warning" id="view-history"><i class="fa-solid fa-eye"></i></button>
         </div>
       `;
 

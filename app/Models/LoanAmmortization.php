@@ -16,7 +16,8 @@ class LoanAmmortization extends Model
         "currency",
         "loan_amount",
         "interest_rate",
-        "ammortization_period"
+        "ammortization_period",
+        "slug"
     ];
 
     public function loan_ammortization_details() {
