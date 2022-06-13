@@ -50,4 +50,10 @@ class HistoryController extends Controller
 
         return response()->json($this->response);
     }
+
+    public function calculation_view($id, $slug) {
+        $loan_ammortization = LoanAmmortization::find($id);
+        $loan_ammortization_details = LoanAmmortizationDetails::where('loan_ammortization_id', $id)->paginate(10);
+        return view('layouts.template.pages.history.history-view-selected', compact('loan_ammortization', 'loan_ammortization_details'));
+    }
 }

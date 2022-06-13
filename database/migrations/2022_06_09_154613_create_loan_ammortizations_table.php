@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('base_loan_calculator_id');
             $table->string('title');
             $table->string('currency');
+            $table->string('slug', 250);
             $table->decimal('loan_amount', 18, 2);
             $table->decimal('interest_rate', 18, 2);
             $table->decimal('ammortization_period', 18, 2);
