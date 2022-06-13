@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\LoanAmmortizationCalculatorController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +25,8 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('dashboard', DashboardController::class);
     Route::resource('history', HistoryController::class);
     Route::resource('loan-ammortization-calculator', LoanAmmortizationCalculatorController::class);
+    Route::resource('profile', ProfileController::class);
+
     Route::get('history/{id}/{slug}', [HistoryController::class, 'calculation_view']);
 });
 
