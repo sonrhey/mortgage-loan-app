@@ -7,40 +7,27 @@
 <div class="tool-container">
   <div class="card">
     <div class="card-body">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="d-grid gap-2 tool loan-calculator-tool-1">
-            <a href="loan-ammortization-calculator" class="btn btn-primary btn-block">
-              <i class='bx bx-calculator bx-lg'></i>
-              <br>
-              <p class="h4 button-label mt-3">Loan Ammortization</p>
-            </a>
+      @foreach ($loan_types as $loan_type)
+        <div class="row">
+          <div class="col-md-12">
+            <div class="d-grid gap-2 tool loan-calculator-tool-1">
+              <button type="button" onclick="goToPage(`{{ $loan_type->base_url }}/{{ $loan_type->id }}/{{ $loan_type->slug }}`)" class="btn {{ $loan_type->class_name }} btn-block" {{ $loan_type->is_enabled }}>
+                <i class='bx bx-calculator bx-lg'></i>
+                <br>
+                <p class="h4 button-label mt-3">{{ $loan_type->description }}</p>
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="d-grid gap-2 tool loan-calculator-tool-2">
-            <button class="btn btn-warning btn-block" disabled>
-              <i class='bx bx-calculator bx-lg'></i>
-              <br>
-              <p class="h4 button-label mt-3">Loan Calculator 2</p>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="d-grid gap-2 tool loan-calculator-tool-3">
-            <button class="btn btn-danger btn-block" disabled>
-              <i class='bx bx-calculator bx-lg'></i>
-              <br>
-              <p class="h4 button-label mt-3">Loan Calculator 3</p>
-            </button>
-          </div>
-        </div>
-      </div>
+      @endforeach
     </div>
   </div>
 </div>
+@endsection
+@section('custom-js')
+<script>
+function goToPage(url) {
+  location.replace(url);
+}
+</script>
 @endsection
