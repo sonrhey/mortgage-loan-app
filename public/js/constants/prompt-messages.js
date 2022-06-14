@@ -8,3 +8,6 @@ const DELETE_ONE = "ONE";
 
 const PROCEED_DELETE_ALL = "proceed-delete-all";
 const PROCEED_DELETE_ONE = "proceed-delete-one";
+
+const PASSWORD_UPDATED_HEADER = "Password Updated";
+const PASSWORD_UPDATED_BODY = "Success! Password is updated succesfully!";

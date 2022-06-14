@@ -83,19 +83,28 @@
         </div>
         <div class="mb-3 col-md-4">
           <label for="lastName" class="form-label">Created At</label>
-          <input class="form-control" type="text" name="created_at" value="{{ $user->created_at }}" disabled />
+          <input class="form-control" type="text" name="created_at" value="<?php 
+            $date = strtotime($user->created_at);
+            echo date("j F Y", $date);
+          ?>" disabled />
         </div>
       </div>
       <div class="mt-2">
         <button type="button" class="btn btn-danger me-2 btn-edit">Edit Info</button>
         <button type="submit" class="btn btn-primary me-2 btn-save d-none">Save Changes</button>
+        <button type="button" class="btn btn-warning me-2" data-bs-toggle="modal" data-bs-target="#change-password">Change Password</button>
         <button type="reset" class="btn btn-outline-secondary btn-cancel">Cancel</button>
       </div>
     </form>
   </div>
 </div>
+@include('layouts.template.modals.profile.change-password')
 @endsection
 @section('custom-js')
+<script src="{{ asset('js/constants/request-header.js') }}"></script>
+<script src="{{ asset('js/profile/invalid-indicator.js') }}"></script>
 <script src="{{ asset('js/profile/toggle-edit.js') }}"></script>
+<script src="{{ asset('js/profile/toggle-fields.js') }}"></script>
+<script src="{{ asset('js/profile/api.js') }}"></script>
 <script src="{{ asset('js/profile/index.js') }}"></script>
 @endsection

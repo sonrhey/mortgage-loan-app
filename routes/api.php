@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\LoanAmmortizationCalculatorController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,4 +25,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
   Route::get('/history/all-history', [HistoryController::class, 'all_history']);
   Route::delete('/history/destroy', [HistoryController::class, 'destroy']);
   Route::delete('/history/delete-all', [HistoryController::class, 'delete_all']);
+
+  Route::post('/profile/check-password', [ProfileController::class, 'check_password']);
+  Route::put('/profile/change-password', [ProfileController::class, 'change_password']);
 });
