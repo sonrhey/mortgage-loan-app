@@ -3,10 +3,6 @@ const { getURLParameter } = commonServices();
 
 $('#calculate').on('click', function() {
   $('.save').prop('disabled', false);
-  const url = getURLParameter({
-    url: window.location.href
-  });
-  const loanTypeCalculator = Number(url[2]);
   const monthlyPaments = computeMonthly({
     ...calculate()
   });
@@ -16,8 +12,15 @@ $('#calculate').on('click', function() {
 $('#btn-save').on('submit', function(e) {
   e.preventDefault();
   const { description, currencySymbol, loanAmount, interestRate, ammortizationPeriod } = calculate();
+  const url = getURLParameter({
+    url: window.location.href
+  });
+  const loanTypeCalculatorId = Number(url[2]);
 
   const requests = {
+    base: {
+      loan_type_calculator_id: loanTypeCalculatorId
+    },
     form: {
       title: description,
       currency: currencySymbol,
