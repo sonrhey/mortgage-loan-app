@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('loan_type_calculators', function (Blueprint $table) {
             $table->id();
+            $table->string('base_url');
+            $table->string('slug');
+            $table->string('is_enabled');
+            $table->string('class_name');
             $table->string('description');
             $table->timestamps();
         });

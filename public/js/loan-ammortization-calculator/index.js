@@ -1,12 +1,15 @@
 let calculation = [];
+const { getURLParameter } = commonServices();
 
 $('#calculate').on('click', function() {
   $('.save').prop('disabled', false);
-
+  const url = getURLParameter({
+    url: window.location.href
+  });
+  const loanTypeCalculator = Number(url[2]);
   const monthlyPaments = computeMonthly({
     ...calculate()
   });
-
 });
 
 

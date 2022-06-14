@@ -17,7 +17,25 @@ class LoanTypeCalculatorSeeder extends Seeder
     {
         LoanTypeCalculator::insert([
             [
-                'description' => 'Loan Ammortization'
+                'base_url' => 'loan-ammortization-calculator',
+                'slug' => 'loan-ammortization',
+                'description' => 'Loan Ammortization',
+                'is_enabled' => '',
+                'class_name' => 'btn-primary'
+            ],
+            [
+                'base_url' => '#',
+                'slug' => 'loan-calculator-1',
+                'description' => 'Loan Calculator 1',
+                'is_enabled' => 'disabled',
+                'class_name' => 'btn-warning'
+            ],
+            [
+                'base_url' => '#',
+                'slug' => 'loan-calculator-2',
+                'description' => 'Loan Calculator 2',
+                'is_enabled' => 'disabled',
+                'class_name' => 'btn-danger'
             ]
         ]);
     }

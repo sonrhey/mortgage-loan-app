@@ -27,6 +27,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('loan-ammortization-calculator', LoanAmmortizationCalculatorController::class);
     Route::resource('profile', ProfileController::class);
 
+    Route::get('loan-ammortization-calculator/{id}/{slug}', [LoanAmmortizationCalculatorController::class, 'index']);
     Route::get('history/{id}/{slug}', [HistoryController::class, 'calculation_view']);
 });
 

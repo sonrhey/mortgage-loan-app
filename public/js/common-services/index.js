@@ -73,5 +73,12 @@ const commonServices = () => {
     }
   }
 
-  return { loader, toast, deletePromptModal }
+  const getURLParameter = ({
+    url: url
+  }) => {
+    const pathname = new URL(url).pathname.split('/');
+    return pathname;
+  }
+
+  return { loader, toast, deletePromptModal, getURLParameter }
 }
