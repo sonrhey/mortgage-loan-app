@@ -14,8 +14,6 @@
       <input
         type="email"
         class="form-control @error('email') is-invalid @enderror"
-        {{-- value="{{ old('email') }}" --}}
-        value="admin@mailinator.com"
         id="email"
         name="email"
         placeholder="Enter your email"
@@ -25,7 +23,7 @@
     <div class="mb-3 form-password-toggle">
       <div class="d-flex justify-content-between">
         <label class="form-label" for="password">Password</label>
-        <a href="auth-forgot-password-basic.html">
+        <a href="forgot-password">
           <small>Forgot Password?</small>
         </a>
       </div>
@@ -37,7 +35,6 @@
           name="password"
           placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
           aria-describedby="password"
-          value="Default@123"
         />
         <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
       </div>
