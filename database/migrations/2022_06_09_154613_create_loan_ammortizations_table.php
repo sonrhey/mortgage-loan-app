@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('loan_ammortizations', function (Blueprint $table) {
             $table->id();
-            $table->integer('base_loan_calculator_id');
+            $table->unsignedBigInteger('base_loan_calculator_id');
             $table->string('title');
             $table->string('currency');
             $table->string('slug', 250);
@@ -23,6 +23,11 @@ return new class extends Migration
             $table->decimal('interest_rate', 18, 2);
             $table->decimal('ammortization_period', 18, 2);
             $table->timestamps();
+
+            $table->foreign('base_loan_calculator_id')
+            ->references('id')
+            ->on('base_loan_calculators')
+            ->onDelete('cascade');
         });
     }
 
