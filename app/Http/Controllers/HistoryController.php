@@ -7,6 +7,7 @@ use App\Models\LoanAmmortization;
 use App\Models\LoanAmmortizationDetails;
 use App\Models\ViewModel\Response;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HistoryController extends Controller
 {
@@ -20,7 +21,10 @@ class HistoryController extends Controller
     }
 
     public function all_history() {
-        $histories = BaseLoanCalculator::with('loan_type', 'loan_ammortization')->get();
+        $histories = BaseLoanCalculator::with('loan_type', 'loan_ammortization')
+        ->myhistory()
+        ->get();
+
         $this->response->response_code = 1;
         $this->response->message = "success";
         $this->response->data = $histories;
@@ -29,8 +33,7 @@ class HistoryController extends Controller
     }
 
     public function destroy(Request $request) {
-        $history = BaseLoanCalculator::find($request->id);
-        $history->delete();
+        $history = BaseLoanCalculator::find($request->id)->delete();
 
         $this->response->response_code = 1;
         $this->response->message = "deleted";
@@ -40,9 +43,7 @@ class HistoryController extends Controller
     }
 
     public function delete_all() {
-        $base_loan = BaseLoanCalculator::truncate();
-        $loan_ammortization = LoanAmmortization::truncate();
-        $loan_ammortization_details = LoanAmmortizationDetails::truncate();
+        $base_loan = BaseLoanCalculator::myhistory()->delete();
 
         $this->response->response_code = 1;
         $this->response->message = "deleted";

@@ -15,13 +15,18 @@ return new class extends Migration
     {
         Schema::create('loan_ammortization_details', function (Blueprint $table) {
             $table->id();
-            $table->integer('loan_ammortization_id');
+            $table->unsignedBigInteger('loan_ammortization_id');
             $table->integer('month');
             $table->decimal('payment', 18, 2);
             $table->decimal('principal', 18, 2);
             $table->decimal('interest', 18, 2);
             $table->decimal('balance', 18, 2);
             $table->timestamps();
+
+            $table->foreign('loan_ammortization_id')
+            ->references('id')
+            ->on('loan_ammortizations')
+            ->onDelete('cascade');
         });
     }
 
