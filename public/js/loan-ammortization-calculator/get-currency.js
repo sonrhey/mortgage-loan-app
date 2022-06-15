@@ -1,7 +1,7 @@
 const getCurrency = (async () => {
   const request = await axios.post('https://api.cloudmersive.com/currency/exchange-rates/list-available', [], {
     headers: {
-      'Apikey': `6d242c41-9cde-4e3b-b532-25d12f924a1d`
+      'Apikey': `${currencyAPIKey}`
     }
   });
   const response = await request.data.Currencies;
