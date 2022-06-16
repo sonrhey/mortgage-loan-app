@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return redirect('/login');
 });
+Route::get('test-email', [DashboardController::class, 'sendEmail']);
 
 Route::group(['middleware' => ['auth']], function(){
     Route::resource('dashboard', DashboardController::class);

@@ -49,5 +49,6 @@
     <script src="{{ asset('template_resources/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
     <script src="{{ asset('template_resources/assets/vendor/js/menu.js') }}"></script>
     <script src="{{ asset('template_resources/assets/js/main.js') }}"></script>
+    @yield('custom-js')
   </body>
 </html>
