@@ -4,20 +4,11 @@
 <p class="mb-4">Enter your email and we'll send you instructions to reset your password</p>
 <form id="formAuthentication" class="mb-3" action="forgot-password" method="POST">
   @csrf
-  @if (session('message'))
-    <div class="row">
-      <div class="col-md-12">
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-          <strong>Success!</strong> {{ session('message') }}
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-      </div>
-    </div>
-  @endif
+  @include('alerts.session-alerts.index')
   <div class="mb-3">
     <label for="email" class="form-label">Email</label>
     <input
-      type="text"
+      type="email"
       class="form-control"
       id="email"
       name="email"
