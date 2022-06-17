@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules;
+use App\Models\PasswordReset as ResetPassword;
 use DB;
 
 class NewPasswordController extends Controller
@@ -41,14 +42,13 @@ class NewPasswordController extends Controller
             'password_confirmation' => 'required'
         ]);
 
-        $updatePassword = DB::table('password_resets')
-                            ->where([
-                              'email' => $request->email, 
-                              'token' => $request->token
-                            ])
-                            ->first();
+        $update_password = ResetPassword::where([
+            'email' => $request->email, 
+            'token' => $request->token
+        ])->first();
 
-        if(!$updatePassword){
+
+        if(!$update_password){
             return back()->withInput()->with('error', 'Invalid token!');
         }
 
