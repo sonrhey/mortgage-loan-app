@@ -14,6 +14,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(LoanTypeCalculatorSeeder::class);
+      $this->call([
+        LoanTypeCalculatorSeeder::class,
+        UserTypeSeeder::class
+      ]);
     }
 }

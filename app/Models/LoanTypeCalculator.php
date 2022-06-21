@@ -7,10 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class LoanTypeCalculator extends Model
 {
-    use HasFactory;
+  use HasFactory;
 
-    protected $table = 'loan_type_calculators';
-    protected $fillable = [
-        'description'
-    ];
+  protected $table = 'loan_type_calculators';
+  protected $fillable = [
+    'base_url',
+    'slug',
+    'is_enabled',
+    'class_name',
+    'description'
+  ];
 }
