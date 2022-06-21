@@ -19,6 +19,12 @@
   margin: auto;
 }
 
+.config-preview {
+  width: 50%;
+  padding: 2em;
+  margin: auto;
+}
+
 @media screen and (max-width: 1050px) {
   .tool-container {
     width: 70%;
