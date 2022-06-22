@@ -23,4 +23,20 @@ class LoanTypeCalculatorController extends Controller
       return back()->with('error', 'Something went wrong.');
     }
   }
+
+  public function destroy($id) {
+    $loan_calculator_type = LoanTypeCalculator::find($id)->delete();
+    return back()->with('success', 'Calculator Type Deleted successfuly!');
+  }
+
+  public function update(Request $request, $id) {
+    $loan_calculator_type = LoanTypeCalculator::find($id);
+    $loan_calculator_type->base_url = $request->base_url;
+    $loan_calculator_type->slug = $request->slug;
+    $loan_calculator_type->is_enabled = $request->is_enabled;
+    $loan_calculator_type->class_name = $request->class_name;
+    $loan_calculator_type->description = $request->description;
+    $loan_calculator_type->save();
+    return back()->with('message', 'Calculator Type Updated Successfully!');
+  }
 }

@@ -10,7 +10,8 @@
       <div class="row">
         <div class="col-md-4">
           <h3>Configuration</h3>
-          <form method="POST" action="/calculator-type/store">
+          <form id="form" method="POST" action="/calculator-type/store">
+            @method('post')
             @csrf
             @include('alerts.session-alerts.index')
             <div class="row">
@@ -66,6 +67,7 @@
               <div class="col-md-12">
                 <div class="mb-3 d-grid gap-2">
                   <button class="btn btn-primary save" type="submit">Save</button>
+                  <button class="btn btn-danger" type="button" onclick="location.reload()">Cancel</button>
                 </div>
               </div>
             </div>
@@ -90,6 +92,16 @@
       </div>
       <div class="row">
         <div class="col-md-12">
+          @if (session('success'))
+            <div class="row">
+              <div class="col-md-4">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                  <strong>Success!</strong> {{ session('success') }}
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+              </div>
+            </div>
+          @endif
           <table class="table table-striped">
             <thead>
               <th>No</th>
@@ -98,6 +110,7 @@
               <th>Class Name</th>
               <th>Slug</th>
               <th>Status</th>
+              <th>Action</th>
             </thead>
             <tbody>
               @foreach ($loan_type_calculators as $ltc)
@@ -108,6 +121,20 @@
                   <td>{{ $ltc->class_name }}</td>
                   <td>{{ $ltc->slug }}</td>
                   <td>{{ $ltc->is_enabled }}</td>
+                  <td>
+                    <div class="btn-group">
+                      <div>
+                        <form method="POST" action="/calculator-type/{{ $ltc->id }}">
+                          @method('delete')
+                          @csrf
+                          <button type="submit"  class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
+                        </form>
+                      </div>
+                      <div>
+                        <button type="button" class="btn btn-warning btn-edit"><i class="fa-solid fa-edit"></i></button>
+                      </div>
+                    </div>
+                  </td>
                 </tr>
               @endforeach
             </tbody>
