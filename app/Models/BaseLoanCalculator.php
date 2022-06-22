@@ -29,11 +29,15 @@ class BaseLoanCalculator extends Model
         $query->where('added_by', Auth::user()->id);
     }
 
+    public function user() {
+      return $this->belongsTo(User::class, 'added_by', 'id');
+    }
+
     public function loan_type() {
-        return $this->belongsTo(LoanTypeCalculator::class, 'loan_type_calculator_id');
+      return $this->belongsTo(LoanTypeCalculator::class, 'loan_type_calculator_id');
     }
 
     public function loan_ammortization() {
-        return $this->hasOne(LoanAmmortization::class, 'base_loan_calculator_id');
+      return $this->hasOne(LoanAmmortization::class, 'base_loan_calculator_id');
     }
 }
