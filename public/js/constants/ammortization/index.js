@@ -1,3 +1,5 @@
 const MONTHS = 12;
 const PERCENTAGE = 100;
 const ONE = 1;
+const FREQUENCY_MONTH = "MONTHS";
+const FREQUENCY_YEAR = "YEARS";

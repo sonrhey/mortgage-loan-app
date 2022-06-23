@@ -1,4 +1,5 @@
 let calculation = [];
+let selectedFrequency = "";
 const { getURLParameter } = commonServices();
 
 $('#calculate').on('click', function() {
@@ -34,6 +35,12 @@ $('#btn-save').on('submit', function(e) {
   saveCalculation(requests);
 });
 
+$('[name="loan-frequency"]').on('change', function() {
+  const value = this.value;
+  selectedFrequency = value;
+  $('.frequency').html(selectedFrequency);
+});
+
 const computeMonthly = ({
   loanAmount : loanAmount,
   interestRate: interestRate,
@@ -46,7 +53,11 @@ const computeMonthly = ({
 
   $('#ammortization-list').empty();
   for (let a = 1 ; a <= ammortizationPeriod; a++) {
-    const monthlyInterest = (begginingBalance * interestRate) / MONTHS;
+    const monthlyInterest = monthlyYearlyInterestCalculation({
+      frequency: selectedFrequency,
+      balance: begginingBalance,
+      interestRate: interestRate
+    });
     const principal = monthlyPayment - monthlyInterest;
     begginingBalance = begginingBalance - principal;
     const endingBalance = (begginingBalance < 0) ? convertToPositive(begginingBalance) : begginingBalance ;

@@ -36,6 +36,18 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="mb-3">
+                  <label for="loan-frequency" class="form-label">Loan Frequency</label>
+                  <select class="form-select" name="loan-frequency">
+                    <option selected disable>Please select one</option>
+                    <option value="MONTHS">Monthly</option>
+                    <option value="YEARS">Yearly</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="mb-3">
                   <label for="loan-amount" class="form-label">Interest Rate (%)</label>
                   <input type="number" step="0.01" class="form-control" id="interest-rate" placeholder="Enter Interest Rate" disabled/> 
                 </div>
@@ -44,7 +56,7 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="mb-3">
-                  <label for="loan-amount" class="form-label">Ammortization Period (Months) <i class="fa-solid fa-circle-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Length of time it would take to pay off a mortgage in full."></i></label>
+                  <label for="loan-amount" class="form-label">Ammortization Period (<span class="frequency">Months</span>) <i class="fa-solid fa-circle-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Length of time it would take to pay off a mortgage in full."></i></label>
                   <input type="number" class="form-control" id="ammortization-period" placeholder="Enter Ammortization Period" disabled/> 
                 </div>
               </div>
@@ -65,7 +77,7 @@
           <h4>Calculation</h4>
           <table class="table table-striped">
             <thead>
-              <th>Month</th>
+              <th><span class="frequency">Months</span></th>
               <th>Payment</th>
               <th>Principal</th>
               <th>Interest</th>
